@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ondoojsuphrv"]
+
+[ext_resource type="Script" uid="uid://buhgidmcbmduy" path="res://mob.gd" id="1_dy6sc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
+radius = 25.0
+
+[node name="mob" type="CharacterBody2D" groups=["mobs"]]
+collision_layer = 2
+script = ExtResource("1_dy6sc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nokgg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 21.0
+offset_bottom = 21.0
+color = Color(1, 0.40910947, 0.44270128, 1)

@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4dqvi6lmta1x"]
+
+[ext_resource type="PackedScene" uid="uid://brhm0vmeu7scu" path="res://joueur.tscn" id="1_bc8hh"]
+[ext_resource type="Script" uid="uid://dnr37c5qyrbub" path="res://jeu.gd" id="1_r6dh1"]
+
+[sub_resource type="Curve2D" id="Curve2D_r6dh1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -55, -66, 0, 0, 0, 0, 1205, -70, 0, 0, 0, 0, 1195, 708, 0, 0, 0, 0, -55, 706, 0, 0, 0, 0, -55, 706, 0, 0, 0, 0, -55, -66)
+}
+point_count = 6
+
+[node name="Jeu" type="Node2D"]
+script = ExtResource("1_r6dh1")
+
+[node name="Score" type="Label" parent="."]
+unique_name_in_owner = true
+top_level = true
+offset_left = 933.0
+offset_top = 17.0
+offset_right = 1064.0
+offset_bottom = 100.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "0/0"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -39.0
+offset_top = -45.0
+offset_right = 1173.0
+offset_bottom = 680.0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_r6dh1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-55, -66)
+rotation = -0.0031745925
+
+[node name="SpawnMob" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="Joueur" parent="." instance=ExtResource("1_bc8hh")]
+unique_name_in_owner = true
+position = Vector2(570, 312)
+
+[connection signal="timeout" from="SpawnMob" to="." method="_on_spawn_mob_timeout"]
