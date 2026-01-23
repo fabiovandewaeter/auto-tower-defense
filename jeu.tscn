@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4dqvi6lmta1x"]
+[gd_scene load_steps=9 format=3 uid="uid://c4dqvi6lmta1x"]
 
 [ext_resource type="PackedScene" uid="uid://brhm0vmeu7scu" path="res://joueur.tscn" id="1_bc8hh"]
 [ext_resource type="Script" uid="uid://dnr37c5qyrbub" path="res://jeu.gd" id="1_r6dh1"]
+[ext_resource type="Script" uid="uid://d1te17d77tqwo" path="res://ameliorations/label_nombre_points.gd" id="2_h8l20"]
+[ext_resource type="Script" uid="uid://chy6pca3kpyir" path="res://ameliorations/buy_button.gd" id="3_hp17q"]
+[ext_resource type="Resource" uid="uid://gbbqxrl6rdnc" path="res://ameliorations/degats_cac.tres" id="4_s1xry"]
 
 [sub_resource type="Theme" id="Theme_r6dh1"]
+
+[sub_resource type="Theme" id="Theme_h8l20"]
 
 [sub_resource type="Curve2D" id="Curve2D_r6dh1"]
 _data = {
@@ -15,6 +20,7 @@ point_count = 6
 script = ExtResource("1_r6dh1")
 
 [node name="UI" type="Control" parent="."]
+top_level = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -22,7 +28,6 @@ offset_bottom = 40.0
 
 [node name="Score" type="Label" parent="UI"]
 unique_name_in_owner = true
-top_level = true
 layout_mode = 0
 offset_left = 34.0
 offset_top = 17.0
@@ -31,37 +36,40 @@ offset_bottom = 100.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "0/0"
+text = "Golds : 0"
+script = ExtResource("2_h8l20")
 
 [node name="ColorRect2" type="ColorRect" parent="UI"]
-visible = false
 layout_mode = 0
-offset_left = 881.0
-offset_top = 3.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 796.0
+offset_top = -41.0
+offset_right = 1181.0
+offset_bottom = 684.0
 size_flags_vertical = 3
 color = Color(1, 0, 0.028496742, 1)
 
 [node name="ScrollAmeliorations" type="ScrollContainer" parent="UI"]
+layout_direction = 3
 layout_mode = 0
-offset_left = 899.0
-offset_top = 7.0
-offset_right = 1136.0
-offset_bottom = 644.0
+offset_left = -1047.0
+offset_top = 2.0
+offset_right = -810.0
+offset_bottom = 639.0
 theme = SubResource("Theme_r6dh1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollAmeliorations"]
+layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_h8l20")
 
-[node name="ColorRect" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+[node name="CRDamageCac" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.47904623, 1, 0.90619016, 1)
 
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect"]
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 14.0
@@ -69,9 +77,9 @@ offset_right = 199.0
 offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
-text = "Amelioration"
+text = "Damages CaC"
 
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect"]
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac"]
 layout_mode = 0
 offset_left = 141.0
 offset_top = 57.0
@@ -80,6 +88,8 @@ offset_bottom = 95.0
 mouse_filter = 1
 text = "Buy
 "
+script = ExtResource("3_hp17q")
+amelioration = ExtResource("4_s1xry")
 
 [node name="ColorRect2" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -287,10 +297,12 @@ layer = -30
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_left = -39.0
 offset_top = -45.0
-offset_right = 1173.0
+offset_right = 798.0
 offset_bottom = 680.0
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-16.01984, 0)
+scale = Vector2(0.70873016, 1)
 curve = SubResource("Curve2D_r6dh1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
@@ -304,6 +316,7 @@ autostart = true
 
 [node name="Joueur" parent="." instance=ExtResource("1_bc8hh")]
 unique_name_in_owner = true
-position = Vector2(570, 312)
+position = Vector2(396, 317)
 
+[connection signal="pressed" from="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac/Button" to="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac/Button" method="_on_pressed"]
 [connection signal="timeout" from="SpawnMob" to="." method="_on_spawn_mob_timeout"]

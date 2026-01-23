@@ -13,17 +13,18 @@ func spawn_mob():
 	add_child(new_mob)
 	
 	DonnesJeu.nombre_mobs += 1
-	update_score()
+	#update_score()
 
 func _on_spawn_mob_timeout() -> void:
 	if DonnesJeu.nombre_mobs < LIMITE_NOMBRE_MOBS:
 		spawn_mob()
 
 func _on_mob_died(mob):
-	DonnesJeu.nombre_mobs -= 1
-	var points = mob.points_recompense()
-	DonnesJeu.points += points
-	update_score()
+	DonnesJeu.mort_mob(mob)
+	#update_score()
+
+func _on_button_pressed(amelioration: Amelioration) -> void:
+	DonnesJeu.acheter(amelioration)
 
 func update_score():
 	%Score.text = str(DonnesJeu.points)+"/"+str(DonnesJeu.nombre_mobs)
