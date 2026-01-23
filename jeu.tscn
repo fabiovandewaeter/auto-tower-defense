@@ -79,7 +79,7 @@ offset_right = 199.0
 offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
-text = "Damages CaC"
+text = "Close-range damages"
 
 [node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac"]
 layout_mode = 0
@@ -100,15 +100,17 @@ offset_right = 210.0
 offset_bottom = 115.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
-text = "Lvl "
+text = "Lvl 0"
 script = ExtResource("6_aw23n")
 
-[node name="ColorRect2" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+[node name="CRDamageLaser" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.47904623, 1, 0.90619016, 1)
+script = ExtResource("3_0yqk5")
+id_amelioration = 1
 
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect2"]
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageLaser"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 14.0
@@ -116,17 +118,29 @@ offset_right = 199.0
 offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
-text = "Amelioration"
+text = "Laser damages"
 
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect2"]
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageLaser"]
 layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
+offset_left = 143.0
+offset_top = 55.0
+offset_right = 219.0
+offset_bottom = 93.0
 mouse_filter = 1
 text = "Buy
 "
+script = ExtResource("3_hp17q")
+
+[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageLaser"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 54.0
+offset_right = 210.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Lvl 0"
+script = ExtResource("6_aw23n")
 
 [node name="ColorRect3" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -329,7 +343,5 @@ autostart = true
 [node name="Joueur" parent="." instance=ExtResource("1_bc8hh")]
 unique_name_in_owner = true
 position = Vector2(396, 317)
-cooldown = null
 
-[connection signal="pressed" from="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac/Button" to="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac" method="_on_button_pressed"]
 [connection signal="timeout" from="SpawnMob" to="." method="_on_spawn_mob_timeout"]

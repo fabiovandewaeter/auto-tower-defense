@@ -24,6 +24,5 @@ func bonus_pour_lvl_actuel() -> float:
 	return bonus_pour_lvl(lvl_actuel)
 
 func acheter():
-	if lvl_actuel == 0:
-		debloquee = true
 	lvl_actuel += 1
+	debloquee = true

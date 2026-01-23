@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_x0m63")
+id = "laser"
+nom = "Laser damages"
+cout_de_base = 100
+multiplicateur_cout = 20.0
+bonus_de_base = 50.0
 metadata/_custom_type_script = "uid://jqyvdc7pi65r"

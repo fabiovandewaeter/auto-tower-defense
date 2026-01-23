@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Amelioration" load_steps=2 format=3 uid="uid://gbbqxrl6rdnc"]
 
-[ext_resource type="Script" uid="uid://jqyvdc7pi65r" path="res://ameliorations/amelioration.gd" id="1_dl0rf"]
+[ext_resource type="Script" uid="uid://jqyvdc7pi65r" path="res://ameliorations/amelioration.gd" id="1_6m2bk"]
 
 [resource]
-script = ExtResource("1_dl0rf")
-id = "degats_cac"
-nom = "Degats CaC"
+script = ExtResource("1_6m2bk")
+id = "cac"
+nom = "Close-range damages"
 cout_de_base = 10
 multiplicateur_cout = 10.0
 bonus_de_base = 5.0

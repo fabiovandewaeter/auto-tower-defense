@@ -1,6 +1,7 @@
 extends Node
 
 signal update_points()
+signal update_ameliorations()
 
 var nombre_mobs: int = 0
 var points: int = 0
@@ -25,9 +26,8 @@ func acheter(amelioration: Amelioration):
 	var cout = amelioration.cout_pour_lvl_actuel()
 	if points >= cout:
 		points -= cout
-		print(str(cout) + " " + str(points) + "lvl: "+ str(amelioration.lvl_actuel))
 		amelioration.acheter()
-		print(str(amelioration.cout_pour_lvl_actuel()) + " " + str(points) + "lvl: "+ str(amelioration.lvl_actuel))
+		update_ameliorations.emit()
 
 func mort_mob(mob):
 	nombre_mobs -= 1
