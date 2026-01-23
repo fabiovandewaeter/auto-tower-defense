@@ -50,7 +50,7 @@ func _creer_onde_de_choc():
 	onde.scale = Vector2(0.1, 0.1) # Commence petit
 	
 	var tween = create_tween()
-	tween.set_parallel(true) # Exécuter en même temps
+	tween.set_parallel(false) # Exécuter en même temps
 	tween.tween_property(onde, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT) # Grandit
 	tween.tween_property(onde, "modulate:a", 0.0, 0.2) # Devient transparent
 	

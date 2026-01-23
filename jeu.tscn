@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4dqvi6lmta1x"]
+[gd_scene load_steps=11 format=3 uid="uid://c4dqvi6lmta1x"]
 
 [ext_resource type="PackedScene" uid="uid://brhm0vmeu7scu" path="res://joueur.tscn" id="1_bc8hh"]
 [ext_resource type="Script" uid="uid://dnr37c5qyrbub" path="res://jeu.gd" id="1_r6dh1"]
 [ext_resource type="Script" uid="uid://d1te17d77tqwo" path="res://ameliorations/label_nombre_points.gd" id="2_h8l20"]
 [ext_resource type="Script" uid="uid://c0cbx0xp8ldn0" path="res://ameliorations/cr_amelioration.gd" id="3_0yqk5"]
+[ext_resource type="Script" uid="uid://b34na13pbrmpe" path="res://label_vague_actuelle.gd" id="3_aw23n"]
 [ext_resource type="Script" uid="uid://chy6pca3kpyir" path="res://ameliorations/buy_button.gd" id="3_hp17q"]
 [ext_resource type="Script" uid="uid://kch0pj6dabja" path="res://ameliorations/label_niveau.gd" id="6_aw23n"]
 
@@ -39,6 +40,19 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Golds : 0"
 script = ExtResource("2_h8l20")
+
+[node name="VagueActuelle" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 34.0
+offset_top = 92.0
+offset_right = 280.0
+offset_bottom = 175.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Wave : 0"
+script = ExtResource("3_aw23n")
 
 [node name="ColorRect2" type="ColorRect" parent="UI"]
 layout_mode = 0

@@ -1,19 +1,21 @@
+# donnes_jeu.gd
 extends Node
 
 signal update_points()
+signal update_vague()
 signal update_ameliorations()
 
 var nombre_mobs: int = 0
+var nombre_mobs_tues: int = 0
 var points: int = 0
+var vague_actuelle: int = 1
 var ameliorations := {}
 
 enum AMELIORATION {CAC, LASER}
 
 func _ready():
 	ameliorations[AMELIORATION.CAC] = preload("res://ameliorations/cac.tres")
-	ameliorations[AMELIORATION.CAC].debloquee = true
 	ameliorations[AMELIORATION.LASER] = preload("res://ameliorations/laser.tres")
-	ameliorations[AMELIORATION.LASER].bonus_de_base = 1000
 
 func amelioration_pour(id: AMELIORATION) -> Amelioration:
 	return ameliorations[id]
@@ -30,6 +32,12 @@ func acheter(amelioration: Amelioration):
 		update_ameliorations.emit()
 
 func mort_mob(mob):
+	const PASSAGE_VAGUE: int = 300
+	
 	nombre_mobs -= 1
-	points += mob.points_recompense()
+	nombre_mobs_tues += 1
+	points += mob.recompense_points
+	if nombre_mobs_tues % PASSAGE_VAGUE == 0:
+		vague_actuelle += 1
+		update_vague.emit()
 	update_points.emit()
