@@ -12,12 +12,13 @@ func peut_acheter(amelioration: Amelioration) -> bool:
 	var cout = amelioration.cout_pour_lvl_actuel()
 	return points >= cout
 
-func acheter(amelioration):
+func acheter(amelioration: Amelioration):
 	var cout = amelioration.cout_pour_lvl_actuel()
-	print(str(cout) + " " + str(points))
 	if points >= cout:
-		amelioration.acheter()
 		points -= cout
+		print(str(cout) + " " + str(points) + "lvl: "+ str(amelioration.lvl_actuel))
+		amelioration.acheter()
+		print(str(amelioration.cout_pour_lvl_actuel()) + " " + str(points) + "lvl: "+ str(amelioration.lvl_actuel))
 
 func mort_mob(mob):
 	nombre_mobs -= 1

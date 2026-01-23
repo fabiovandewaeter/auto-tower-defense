@@ -23,8 +23,5 @@ func _on_mob_died(mob):
 	DonnesJeu.mort_mob(mob)
 	#update_score()
 
-func _on_button_pressed(amelioration: Amelioration) -> void:
-	DonnesJeu.acheter(amelioration)
-
 func update_score():
 	%Score.text = str(DonnesJeu.points)+"/"+str(DonnesJeu.nombre_mobs)

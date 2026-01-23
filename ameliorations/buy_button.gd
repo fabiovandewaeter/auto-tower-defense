@@ -1,10 +1,4 @@
 extends Button
 
-@export var amelioration: Amelioration
-
-func _ready():
-	text = amelioration.nom + " (" + str(amelioration.cout_de_base) + " golds)"
-
-func _on_pressed():
-	print("TEST")
-	DonnesJeu.acheter(amelioration)
+func update_affichage(amelioration):
+	text = amelioration.nom + " (" + str(amelioration.cout_pour_lvl_actuel()) + " golds)"
