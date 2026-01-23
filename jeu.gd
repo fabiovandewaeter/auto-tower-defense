@@ -2,9 +2,6 @@ extends Node2D
 
 const LIMITE_NOMBRE_MOBS = 10000
 
-var nombre_mobs = 0
-var score = 0
-
 func spawn_mob():
 	const MOB = preload("res://mob.tscn")
 	
@@ -15,17 +12,18 @@ func spawn_mob():
 	new_mob.died.connect(_on_mob_died)
 	add_child(new_mob)
 	
-	nombre_mobs += 1
+	DonnesJeu.nombre_mobs += 1
 	update_score()
 
 func _on_spawn_mob_timeout() -> void:
-	if nombre_mobs < LIMITE_NOMBRE_MOBS:
+	if DonnesJeu.nombre_mobs < LIMITE_NOMBRE_MOBS:
 		spawn_mob()
 
-func _on_mob_died():
-	nombre_mobs -= 1
-	score += 1
+func _on_mob_died(mob):
+	DonnesJeu.nombre_mobs -= 1
+	var points = mob.points_recompense()
+	DonnesJeu.points += points
 	update_score()
 
 func update_score():
-	%Score.text = str(score)+"/"+str(nombre_mobs)
+	%Score.text = str(DonnesJeu.points)+"/"+str(DonnesJeu.nombre_mobs)

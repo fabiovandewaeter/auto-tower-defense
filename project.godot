@@ -15,6 +15,10 @@ run/main_scene="uid://c4dqvi6lmta1x"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DonnesJeu="*res://donnes_jeu.gd"
+
 [debug]
 
 settings/stdout/print_fps=true
@@ -22,6 +26,10 @@ settings/stdout/print_fps=true
 [global_group]
 
 mobs=""
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

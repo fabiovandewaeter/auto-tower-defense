@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-signal died
+signal died()
 
 # façon hardcodée : faut faire ça car ça attend que le chargement soit fait
 #@onready var player = $"/root/Jeu/Joueur"
 @export var cible: Node2D
 
-var pv = 100
+var pv = 10.0
 
 func _ready() -> void:
 	#%Slime.play_walk()
@@ -28,5 +28,10 @@ func take_damage(degats: int):
 		die()
 
 func die():
-	died.emit()
+	died.emit(self)
 	queue_free()
+
+func points_recompense():
+	const POINTS_RECOMPENSE = 1
+	
+	return POINTS_RECOMPENSE

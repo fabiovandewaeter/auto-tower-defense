@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4dqvi6lmta1x"]
+[gd_scene load_steps=5 format=3 uid="uid://c4dqvi6lmta1x"]
 
 [ext_resource type="PackedScene" uid="uid://brhm0vmeu7scu" path="res://joueur.tscn" id="1_bc8hh"]
 [ext_resource type="Script" uid="uid://dnr37c5qyrbub" path="res://jeu.gd" id="1_r6dh1"]
+
+[sub_resource type="Theme" id="Theme_r6dh1"]
 
 [sub_resource type="Curve2D" id="Curve2D_r6dh1"]
 _data = {
@@ -12,17 +14,272 @@ point_count = 6
 [node name="Jeu" type="Node2D"]
 script = ExtResource("1_r6dh1")
 
-[node name="Score" type="Label" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="UI"]
 unique_name_in_owner = true
 top_level = true
-offset_left = 933.0
+layout_mode = 0
+offset_left = 34.0
 offset_top = 17.0
-offset_right = 1064.0
+offset_right = 165.0
 offset_bottom = 100.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "0/0"
+
+[node name="ColorRect2" type="ColorRect" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 881.0
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_vertical = 3
+color = Color(1, 0, 0.028496742, 1)
+
+[node name="ScrollAmeliorations" type="ScrollContainer" parent="UI"]
+layout_mode = 0
+offset_left = 899.0
+offset_top = 7.0
+offset_right = 1136.0
+offset_bottom = 644.0
+theme = SubResource("Theme_r6dh1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollAmeliorations"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect2" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect3" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect3"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect3"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect4" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect4"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect4"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect5" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect5"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect5"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect6" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect6"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect6"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect7" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect7"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect7"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect8" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect8"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect8"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
+
+[node name="ColorRect9" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.47904623, 1, 0.90619016, 1)
+
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect9"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Amelioration"
+
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect9"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 217.0
+offset_bottom = 95.0
+mouse_filter = 1
+text = "Buy
+"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
