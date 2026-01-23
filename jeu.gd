@@ -1,3 +1,4 @@
+# jeu.gd
 extends Node2D
 
 const LIMITE_NOMBRE_MOBS = 10000
@@ -13,15 +14,11 @@ func spawn_mob():
 	add_child(new_mob)
 	
 	DonnesJeu.nombre_mobs += 1
-	#update_score()
 
 func _on_spawn_mob_timeout() -> void:
 	if DonnesJeu.nombre_mobs < LIMITE_NOMBRE_MOBS:
-		spawn_mob()
+		for i in range(10):
+			spawn_mob()
 
 func _on_mob_died(mob):
 	DonnesJeu.mort_mob(mob)
-	#update_score()
-
-func update_score():
-	%Score.text = str(DonnesJeu.points)+"/"+str(DonnesJeu.nombre_mobs)

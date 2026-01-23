@@ -6,9 +6,9 @@ class_name Amelioration
 @export var cout_de_base: int
 @export var multiplicateur_cout: float
 @export var bonus_de_base: float
+@export var debloquee: bool = false
 var lvl_actuel: int = 1
 
-# getters
 func cout_pour_lvl(lvl: int) -> int:
 	if lvl == 1:
 		return cout_de_base
@@ -20,8 +20,10 @@ func cout_pour_lvl_actuel() -> int:
 func bonus_pour_lvl(lvl: int) -> float:
 	return bonus_de_base * float(lvl)
 
-func bonus_pour_lvl_actuel(lvl: int) -> float:
+func bonus_pour_lvl_actuel() -> float:
 	return bonus_pour_lvl(lvl_actuel)
 
 func acheter():
+	if lvl_actuel == 0:
+		debloquee = true
 	lvl_actuel += 1

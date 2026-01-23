@@ -9,7 +9,6 @@ signal died()
 var pv = 10.0
 
 func _ready() -> void:
-	#%Slime.play_walk()
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -23,7 +22,6 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(degats: int):
 	pv -= degats
-	#%Slime.play_hurt()
 	if pv <= 0.0:
 		die()
 
@@ -33,5 +31,4 @@ func die():
 
 func points_recompense():
 	const POINTS_RECOMPENSE = 1
-	
 	return POINTS_RECOMPENSE

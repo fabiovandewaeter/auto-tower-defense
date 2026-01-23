@@ -31,7 +31,7 @@ color = Color(0, 0.47843137, 0.9764706, 1)
 
 [node name="CooldownCaC" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 0.3
 autostart = true
 
 [node name="CooldownLaser" type="Timer" parent="."]

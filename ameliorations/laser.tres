@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Amelioration" load_steps=2 format=3 uid="uid://da3nb2m1r0alb"]
+
+[ext_resource type="Script" uid="uid://jqyvdc7pi65r" path="res://ameliorations/amelioration.gd" id="1_x0m63"]
+
+[resource]
+script = ExtResource("1_x0m63")
+metadata/_custom_type_script = "uid://jqyvdc7pi65r"

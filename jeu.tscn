@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4dqvi6lmta1x"]
+[gd_scene load_steps=10 format=3 uid="uid://c4dqvi6lmta1x"]
 
 [ext_resource type="PackedScene" uid="uid://brhm0vmeu7scu" path="res://joueur.tscn" id="1_bc8hh"]
 [ext_resource type="Script" uid="uid://dnr37c5qyrbub" path="res://jeu.gd" id="1_r6dh1"]
 [ext_resource type="Script" uid="uid://d1te17d77tqwo" path="res://ameliorations/label_nombre_points.gd" id="2_h8l20"]
 [ext_resource type="Script" uid="uid://c0cbx0xp8ldn0" path="res://ameliorations/cr_amelioration.gd" id="3_0yqk5"]
 [ext_resource type="Script" uid="uid://chy6pca3kpyir" path="res://ameliorations/buy_button.gd" id="3_hp17q"]
-[ext_resource type="Resource" uid="uid://gbbqxrl6rdnc" path="res://ameliorations/degats_cac.tres" id="4_s1xry"]
 [ext_resource type="Script" uid="uid://kch0pj6dabja" path="res://ameliorations/label_niveau.gd" id="6_aw23n"]
 
 [sub_resource type="Theme" id="Theme_r6dh1"]
@@ -71,7 +70,6 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.47904623, 1, 0.90619016, 1)
 script = ExtResource("3_0yqk5")
-amelioration = ExtResource("4_s1xry")
 
 [node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac"]
 layout_mode = 0
@@ -331,6 +329,7 @@ autostart = true
 [node name="Joueur" parent="." instance=ExtResource("1_bc8hh")]
 unique_name_in_owner = true
 position = Vector2(396, 317)
+cooldown = null
 
 [connection signal="pressed" from="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac/Button" to="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac" method="_on_button_pressed"]
 [connection signal="timeout" from="SpawnMob" to="." method="_on_spawn_mob_timeout"]

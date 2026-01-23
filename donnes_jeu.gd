@@ -1,12 +1,21 @@
 extends Node
 
 signal update_points()
-signal stats_updated(nouveau)
 
 var nombre_mobs: int = 0
 var points: int = 0
+var ameliorations := {}
 
-var degats_cac: float = 10.0
+enum AMELIORATION {CAC, LASER}
+
+func _ready():
+	ameliorations[AMELIORATION.CAC] = preload("res://ameliorations/cac.tres")
+	ameliorations[AMELIORATION.CAC].debloquee = true
+	ameliorations[AMELIORATION.LASER] = preload("res://ameliorations/laser.tres")
+	ameliorations[AMELIORATION.LASER].bonus_de_base = 1000
+
+func amelioration_pour(id: AMELIORATION) -> Amelioration:
+	return ameliorations[id]
 
 func peut_acheter(amelioration: Amelioration) -> bool:
 	var cout = amelioration.cout_pour_lvl_actuel()
