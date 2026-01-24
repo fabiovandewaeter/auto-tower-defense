@@ -23,6 +23,13 @@ DonnesJeu="*res://donnes_jeu.gd"
 
 settings/stdout/print_fps=true
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 mobs=""

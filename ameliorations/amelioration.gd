@@ -9,7 +9,7 @@ class_name Amelioration
 @export var bonus_de_base: float
 @export var pourcentage_bonus_par_lvl: float
 @export var debloquee: bool = false
-var lvl_actuel: int = 1
+@export var lvl_actuel: int = 0
 
 func cout_pour_lvl(lvl: int) -> int:
 	if lvl == 1:

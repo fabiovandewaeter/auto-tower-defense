@@ -11,4 +11,5 @@ pourcentage_cout_par_lvl = 1.7
 bonus_de_base = 20.0
 pourcentage_bonus_par_lvl = 1.2
 debloquee = true
+lvl_actuel = 1
 metadata/_custom_type_script = "uid://jqyvdc7pi65r"
