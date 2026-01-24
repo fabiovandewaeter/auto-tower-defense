@@ -21,7 +21,7 @@ func _ready() -> void:
 func set_lvl(new_lvl: int):
 	lvl = new_lvl
 	pv = pv_de_base * pow(1.20, lvl) # +20% par lvl
-	recompense_points = 1 if lvl == 1 else 3 * lvl
+	recompense_points = 1 if lvl == 1 else 5 * lvl
 
 func _update_sprite_dir() -> void:
 	if cible == null:
@@ -38,7 +38,6 @@ func _update_sprite_dir_from_vector(direction: Vector2) -> void:
 	# si ton sprite "regarde à droite" par défaut -> flip_h = not facing_right
 	# sinon (sprite regarde gauche par défaut) -> flip_h = facing_right
 	animation_black_walk.flip_h = (not facing_right) if sprite_faces_right else facing_right
-
 
 func _physics_process(delta: float) -> void:
 	if cible == null:

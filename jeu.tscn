@@ -1,17 +1,30 @@
-[gd_scene load_steps=14 format=4 uid="uid://c4dqvi6lmta1x"]
+[gd_scene load_steps=19 format=4 uid="uid://c4dqvi6lmta1x"]
 
 [ext_resource type="PackedScene" uid="uid://brhm0vmeu7scu" path="res://joueur.tscn" id="1_bc8hh"]
 [ext_resource type="Script" uid="uid://dnr37c5qyrbub" path="res://jeu.gd" id="1_r6dh1"]
 [ext_resource type="Script" uid="uid://d1te17d77tqwo" path="res://ameliorations/label_nombre_points.gd" id="2_h8l20"]
+[ext_resource type="Texture2D" uid="uid://bnmb0ys2btdsx" path="res://assets/Banner.png" id="2_incv7"]
 [ext_resource type="Script" uid="uid://c0cbx0xp8ldn0" path="res://ameliorations/cr_amelioration.gd" id="3_0yqk5"]
 [ext_resource type="Script" uid="uid://b34na13pbrmpe" path="res://label_vague_actuelle.gd" id="3_aw23n"]
 [ext_resource type="Script" uid="uid://chy6pca3kpyir" path="res://ameliorations/buy_button.gd" id="3_hp17q"]
+[ext_resource type="Texture2D" uid="uid://b0bgjm7cu4pej" path="res://assets/BigRibbons.png" id="5_xsp2q"]
 [ext_resource type="Script" uid="uid://kch0pj6dabja" path="res://ameliorations/label_niveau.gd" id="6_aw23n"]
 [ext_resource type="Texture2D" uid="uid://c36fdbm7nt25m" path="res://assets/Tilemap_color1.png" id="7_0sqbu"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5b5a"]
+atlas = ExtResource("2_incv7")
+region = Rect2(4, 0, 572, 957)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xsp2q"]
+
 [sub_resource type="Theme" id="Theme_r6dh1"]
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_xsp2q")
 
 [sub_resource type="Theme" id="Theme_h8l20"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_incv7"]
+atlas = ExtResource("5_xsp2q")
+region = Rect2(30, 532, 323, 103)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsp2q"]
 texture = ExtResource("7_0sqbu")
@@ -729,22 +742,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect2" type="ColorRect" parent="UI"]
+[node name="TextureRect" type="TextureRect" parent="UI"]
 layout_mode = 0
-offset_left = 796.0
-offset_top = -41.0
-offset_right = 1181.0
-offset_bottom = 684.0
-size_flags_vertical = 3
-color = Color(1, 0, 0.028496742, 1)
+offset_left = 765.0
+offset_top = -11.0
+offset_right = 1337.0
+offset_bottom = 946.0
+texture = SubResource("AtlasTexture_o5b5a")
 
 [node name="ScrollAmeliorations" type="ScrollContainer" parent="UI"]
 layout_direction = 3
 layout_mode = 0
-offset_left = -1106.0
+offset_left = -1113.0
 offset_top = 2.0
 offset_right = -768.0
-offset_bottom = 416.0
+offset_bottom = 424.57397
 theme = SubResource("Theme_r6dh1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollAmeliorations"]
@@ -754,117 +766,114 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_h8l20")
 
-[node name="CRDamageCac" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="Cac" type="TextureRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
+texture = SubResource("AtlasTexture_incv7")
 script = ExtResource("3_0yqk5")
 
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac"]
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/Cac"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
+offset_left = 83.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Close-range damages"
+theme_override_font_sizes/font_size = 22
+text = "Close-range damage"
 
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac"]
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/Cac"]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 55.0
-offset_right = 219.0
-offset_bottom = 93.0
+offset_left = 168.0
+offset_top = 39.0
+offset_right = 244.0
+offset_bottom = 77.0
 mouse_filter = 1
 text = "Buy
 "
 script = ExtResource("3_hp17q")
 
-[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageCac"]
+[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/Cac"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 54.0
-offset_right = 210.0
-offset_bottom = 115.0
+offset_left = 78.0
+offset_top = 40.0
+offset_right = 269.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Lvl 0"
 script = ExtResource("6_aw23n")
 
-[node name="CRDamageLaser" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="Laser" type="TextureRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
+texture = SubResource("AtlasTexture_incv7")
 script = ExtResource("3_0yqk5")
 id_amelioration = 1
 
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageLaser"]
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/Laser"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
+offset_left = 83.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Laser damages"
+theme_override_font_sizes/font_size = 22
+text = "Laser damage"
 
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageLaser"]
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/Laser"]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 55.0
-offset_right = 219.0
-offset_bottom = 93.0
+offset_left = 168.0
+offset_top = 39.0
+offset_right = 244.0
+offset_bottom = 77.0
 mouse_filter = 1
 text = "Buy
 "
 script = ExtResource("3_hp17q")
 
-[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageLaser"]
+[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/Laser"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 54.0
-offset_right = 210.0
-offset_bottom = 115.0
+offset_left = 78.0
+offset_top = 40.0
+offset_right = 269.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Lvl 0"
 script = ExtResource("6_aw23n")
 
-[node name="CRDamageExplosionRandom" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="ExplosionRandom" type="TextureRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
+texture = SubResource("AtlasTexture_incv7")
 script = ExtResource("3_0yqk5")
 id_amelioration = 2
 
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageExplosionRandom"]
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ExplosionRandom"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
+offset_left = 83.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Explosion damages"
+theme_override_font_sizes/font_size = 22
+text = "Explosion damage"
 
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageExplosionRandom"]
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ExplosionRandom"]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 55.0
-offset_right = 219.0
-offset_bottom = 93.0
+offset_left = 168.0
+offset_top = 39.0
+offset_right = 244.0
+offset_bottom = 77.0
 mouse_filter = 1
 text = "Buy
 "
 script = ExtResource("3_hp17q")
 
-[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageExplosionRandom"]
+[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ExplosionRandom"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 54.0
-offset_right = 210.0
-offset_bottom = 115.0
+offset_left = 78.0
+offset_top = 40.0
+offset_right = 269.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Lvl 0"
@@ -905,7 +914,6 @@ tile_set = SubResource("TileSet_incv7")
 
 [node name="Joueur" parent="." instance=ExtResource("1_bc8hh")]
 unique_name_in_owner = true
-top_level = true
 position = Vector2(396, 317)
 
 [node name="Path2D" type="Path2D" parent="."]

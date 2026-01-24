@@ -18,7 +18,7 @@ func _ready() -> void:
 # attaque au cac
 func _on_cooldown_ca_c_timeout() -> void:
 	_creer_onde_de_choc()
-
+	
 	var ennemis_proches = %HurtBox.get_overlapping_bodies()
 	for body in ennemis_proches:
 		if body.is_in_group("mobs") and body.has_method("take_damage"):

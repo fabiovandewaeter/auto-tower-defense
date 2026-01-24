@@ -105,6 +105,7 @@ animations = [{
 }]
 
 [node name="mob" type="CharacterBody2D" groups=["mobs"]]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_dy6sc")
 

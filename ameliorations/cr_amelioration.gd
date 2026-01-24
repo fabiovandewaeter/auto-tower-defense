@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 
 @export var id_amelioration: DonnesJeu.AMELIORATION
 
