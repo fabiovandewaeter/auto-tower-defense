@@ -3,6 +3,9 @@ extends Node2D
 
 const LIMITE_NOMBRE_MOBS = 200
 
+func _ready() -> void:
+	DonnesJeu.update_points.connect(_on_update_points)
+
 func spawn_mob():
 	const MOB = preload("res://mob.tscn")
 	
@@ -23,3 +26,13 @@ func _on_spawn_mob_timeout() -> void:
 
 func _on_mob_died(mob):
 	DonnesJeu.mort_mob(mob)
+
+func _on_update_points():
+	if DonnesJeu.points >= 1_000_000:
+		DonnesJeu.update_points.disconnect(_on_update_points)
+		%Victory.visible = true
+		get_tree().paused = true
+
+func _on_button_continue_pressed() -> void:
+	%Victory.visible = false
+	get_tree().paused = false
