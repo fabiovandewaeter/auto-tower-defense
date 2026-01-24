@@ -5,7 +5,9 @@ extends StaticBody2D
 
 @onready var amelioration_cac: Amelioration = DonnesJeu.amelioration_pour(DonnesJeu.AMELIORATION.CAC)
 @onready var amelioration_laser: Amelioration = DonnesJeu.amelioration_pour(DonnesJeu.AMELIORATION.LASER)
+@onready var amelioration_explosion_random: Amelioration = DonnesJeu.amelioration_pour(DonnesJeu.AMELIORATION.EXPLOSION_RANDOM)
 @onready var animated_sprite_idle = $Node2D/AnimatedSprite2D
+@onready var animated_explosion_random = $Node2D/ExplosionRandom
 
 var rng := RandomNumberGenerator.new()
 
@@ -16,7 +18,7 @@ func _ready() -> void:
 # attaque au cac
 func _on_cooldown_ca_c_timeout() -> void:
 	_creer_onde_de_choc()
-	
+
 	var ennemis_proches = %HurtBox.get_overlapping_bodies()
 	for body in ennemis_proches:
 		if body.is_in_group("mobs") and body.has_method("take_damage"):
@@ -118,3 +120,78 @@ func _tirer_laser_vers_position(target_pos: Vector2):
 		if mob.global_position.distance_to(point_proche) < 30.0:
 			if mob.has_method("take_damage"):
 				mob.take_damage(damage)
+
+func _on_cooldown_explosion_random_timeout() -> void:
+	if amelioration_explosion_random.debloquee:
+		lancer_explosion_random()
+
+func lancer_explosion_random():
+	var mobs = get_tree().get_nodes_in_group("mobs")
+	if mobs.is_empty():
+		return
+	
+	var idx = rng.randi_range(0, mobs.size() - 1)
+	var cible = mobs[idx]
+	var amelioration = DonnesJeu.amelioration_pour(DonnesJeu.AMELIORATION.EXPLOSION_RANDOM)
+	if not cible or not cible.is_inside_tree():
+		return
+	_lancer_explosion_random_a_position(cible.global_position)
+
+func _lancer_explosion_random_a_position(position: Vector2):
+	# --- VISUEL : on duplique la node animated_explosion_random et la place à la position cible ---
+	# On clone la node pour pouvoir la jouer librement dans la scène
+	var explosion = animated_explosion_random.duplicate() # duplicate preserves frames et animations
+	explosion.visible = true
+	# Assure-toi que l'explosion n'a pas de parent problématique ; on l'ajoute à la scène courante
+	var root_scene = get_tree().get_current_scene()
+	if root_scene:
+		root_scene.add_child(explosion)
+	else:
+		add_child(explosion) # fallback
+
+	# Place l'explosion à la position voulue (global)
+	explosion.global_position = position
+
+	# Choisir une animation aléatoire si plusieurs animations sont définies dans le SpriteFrames
+	var anims = []
+	# Récupère les noms d'animations si possible
+	if explosion.sprite_frames:
+		anims = explosion.sprite_frames.get_animation_names()
+	
+	if anims.size() > 0:
+		var idx = rng.randi_range(0, anims.size() - 1)
+		var anim_name = anims[idx]
+		# joue l'animation choisie
+		explosion.play(anim_name)
+	else:
+		# s'il n'y a pas d'animations listées, on joue l'animation par défaut
+		explosion.play()
+
+	# On connecte la fin de l'animation pour supprimer la node proprement
+	# AnimatedSprite2D émet "animation_finished"
+	# Utilisation de Callable pour robustesse (Godot 4 style)
+	if explosion.has_signal("animation_finished"):
+		explosion.connect("animation_finished", Callable(explosion, "queue_free"))
+	else:
+		# fallback : détruit après 0.8s si pas de signal
+		var t = create_tween()
+		t.tween_interval(0.8).tween_callback(explosion.queue_free)
+
+	# --- DÉGÂTS : on applique aux mobs proches ---
+	var damage = amelioration_explosion_random.bonus_pour_lvl_actuel() if amelioration_explosion_random else 0
+
+	var mobs = get_tree().get_nodes_in_group("mobs")
+	for mob in mobs:
+		if not is_instance_valid(mob):
+			continue
+		var dist = mob.global_position.distance_to(position)
+		var explosion_radius: float = 200.0 # rayon de l'explosion en pixels (modifiable)
+
+		if dist <= explosion_radius:
+			# on applique les dégâts
+			if mob.has_method("take_damage"):
+				# call_deferred au cas où take_damage ferait un queue_free immédiat
+				mob.call_deferred("take_damage", damage)
+			# (optionnel) tu peux aussi appliquer un knockback ici si tu veux
+
+	# (optionnel) jouer un petit effet sonore ici si tu as un AudioStreamPlayer2D

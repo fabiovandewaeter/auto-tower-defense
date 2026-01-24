@@ -11,8 +11,8 @@ signal died()
 
 var lvl: int = 1 : set = set_lvl
 var pv_de_base: float = 10.0
-var pv: float = pv_de_base * pow(1.20, lvl) # +20% par lvl
-var recompense_points: int = 1 if lvl == 1 else 2 * lvl
+var pv: float = pv_de_base
+var recompense_points: int = 1
 
 func _ready() -> void:
 	animation_black_walk.play()
@@ -21,7 +21,7 @@ func _ready() -> void:
 func set_lvl(new_lvl: int):
 	lvl = new_lvl
 	pv = pv_de_base * pow(1.20, lvl) # +20% par lvl
-	recompense_points = 1 if lvl == 1 else 2 * lvl
+	recompense_points = 1 if lvl == 1 else 3 * lvl
 
 func _update_sprite_dir() -> void:
 	if cible == null:

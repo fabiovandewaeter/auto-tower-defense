@@ -11,11 +11,12 @@ var points: int = 0
 var vague_actuelle: int = 1
 var ameliorations := {}
 
-enum AMELIORATION {CAC, LASER}
+enum AMELIORATION {CAC, LASER, EXPLOSION_RANDOM}
 
 func _ready():
 	ameliorations[AMELIORATION.CAC] = preload("res://ameliorations/cac.tres")
 	ameliorations[AMELIORATION.LASER] = preload("res://ameliorations/laser.tres")
+	ameliorations[AMELIORATION.EXPLOSION_RANDOM] = preload("res://ameliorations/explosion_random.tres")
 
 func amelioration_pour(id: AMELIORATION) -> Amelioration:
 	return ameliorations[id]

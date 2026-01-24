@@ -831,12 +831,14 @@ theme_override_font_sizes/font_size = 29
 text = "Lvl 0"
 script = ExtResource("6_aw23n")
 
-[node name="ColorRect3" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
+[node name="CRDamageExplosionRandom" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.47904623, 1, 0.90619016, 1)
+script = ExtResource("3_0yqk5")
+id_amelioration = 2
 
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect3"]
+[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageExplosionRandom"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 14.0
@@ -844,203 +846,58 @@ offset_right = 199.0
 offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
-text = "Amelioration"
+text = "Explosion damages"
 
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect3"]
+[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageExplosionRandom"]
 layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
+offset_left = 143.0
+offset_top = 55.0
+offset_right = 219.0
+offset_bottom = 93.0
 mouse_filter = 1
 text = "Buy
 "
+script = ExtResource("3_hp17q")
 
-[node name="ColorRect4" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
-
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect4"]
+[node name="Niveau" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/CRDamageExplosionRandom"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
+offset_left = 19.0
+offset_top = 54.0
+offset_right = 210.0
+offset_bottom = 115.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
-text = "Amelioration"
-
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect4"]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
-mouse_filter = 1
-text = "Buy
-"
-
-[node name="ColorRect5" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
-
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect5"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Amelioration"
-
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect5"]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
-mouse_filter = 1
-text = "Buy
-"
-
-[node name="ColorRect6" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
-
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect6"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Amelioration"
-
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect6"]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
-mouse_filter = 1
-text = "Buy
-"
-
-[node name="ColorRect7" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
-
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect7"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Amelioration"
-
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect7"]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
-mouse_filter = 1
-text = "Buy
-"
-
-[node name="ColorRect8" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
-
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect8"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Amelioration"
-
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect8"]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
-mouse_filter = 1
-text = "Buy
-"
-
-[node name="ColorRect9" type="ColorRect" parent="UI/ScrollAmeliorations/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-color = Color(0.47904623, 1, 0.90619016, 1)
-
-[node name="Label" type="Label" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect9"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "Amelioration"
-
-[node name="Button" type="Button" parent="UI/ScrollAmeliorations/VBoxContainer/ColorRect9"]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 57.0
-offset_right = 217.0
-offset_bottom = 95.0
-mouse_filter = 1
-text = "Buy
-"
+text = "Lvl 0"
+script = ExtResource("6_aw23n")
 
 [node name="Score" type="Label" parent="UI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 844.0
+offset_left = 808.0
 offset_top = 447.0
-offset_right = 1090.0
+offset_right = 1054.0
 offset_bottom = 530.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "Golds : 0"
 script = ExtResource("2_h8l20")
 
 [node name="VagueActuelle" type="Label" parent="UI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 844.0
-offset_top = 522.0
-offset_right = 1090.0
-offset_bottom = 605.0
+offset_left = 808.0
+offset_top = 502.0
+offset_right = 1054.0
+offset_bottom = 585.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "Wave : 0"
 script = ExtResource("3_aw23n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_left = -39.0
-offset_top = -45.0
-offset_right = 798.0
-offset_bottom = 680.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer"]
 tile_map_data = PackedByteArray("AAABAAEAAAABAAEAAAAFAAEAAAABAAEAAAAJAAEAAAABAAEAAAANAAEAAAABAAEAAAARAAEAAAABAAEAAAAVAAEAAAABAAEAAAAZAAEAAAABAAEAAAAdAAEAAAABAAEAAAAhAAEAAAABAAEAAAAlAAEAAAABAAEAAAApAAEAAAABAAEAAAAtAAEAAAABAAEAAAAxAAEAAAABAAEAAAABAAUAAAABAAEAAAABAAkAAAABAAEAAAABAA0AAAABAAEAAAABABEAAAABAAEAAAABABUAAAABAAEAAAABABkAAAABAAEAAAAFAAUAAAABAAEAAAAFAAkAAAABAAEAAAAJAAkAAAABAAEAAAAJAAUAAAABAAEAAAANAAUAAAABAAEAAAANAAkAAAABAAEAAAAFAA0AAAABAAEAAAAJAA0AAAABAAEAAAANAA0AAAABAAEAAAAFABEAAAABAAEAAAAFABUAAAABAAEAAAAFABkAAAABAAEAAAAJABkAAAABAAEAAAAJABUAAAABAAEAAAAJABEAAAABAAEAAAANABEAAAABAAEAAAANABUAAAABAAEAAAANABkAAAABAAEAAAABAB0AAAABAAEAAAABACEAAAABAAEAAAABACUAAAABAAEAAAABACkAAAABAAEAAAAFACkAAAABAAEAAAAFACUAAAABAAEAAAAFACEAAAABAAEAAAAFAB0AAAABAAEAAAAJAB0AAAABAAEAAAANAB0AAAABAAEAAAAJACEAAAABAAEAAAAJACUAAAABAAEAAAAJACkAAAABAAEAAAANACkAAAABAAEAAAANACUAAAABAAEAAAANACEAAAABAAEAAAARACkAAAABAAEAAAAVACkAAAABAAEAAAAVACUAAAABAAEAAAARACUAAAABAAEAAAARACEAAAABAAEAAAARAB0AAAABAAEAAAARABkAAAABAAEAAAARABUAAAABAAEAAAARABEAAAABAAEAAAARAA0AAAABAAEAAAARAAkAAAABAAEAAAARAAUAAAABAAEAAAAVAAUAAAABAAEAAAAZAAUAAAABAAEAAAAdAAUAAAABAAEAAAAhAAUAAAABAAEAAAAlAAUAAAABAAEAAAApAAUAAAABAAEAAAAtAAUAAAABAAEAAAAxAAUAAAABAAEAAAAVAAkAAAABAAEAAAAZAAkAAAABAAEAAAAVAA0AAAABAAEAAAAZAA0AAAABAAEAAAAdAA0AAAABAAEAAAAdAAkAAAABAAEAAAAhAAkAAAABAAEAAAAlAAkAAAABAAEAAAApAAkAAAABAAEAAAAtAAkAAAABAAEAAAAxAAkAAAABAAEAAAAhAA0AAAABAAEAAAAlAA0AAAABAAEAAAApAA0AAAABAAEAAAAtAA0AAAABAAEAAAAxAA0AAAABAAEAAAAVABEAAAABAAEAAAAVABUAAAABAAEAAAAZABUAAAABAAEAAAAZABEAAAABAAEAAAAdABEAAAABAAEAAAAdABUAAAABAAEAAAAhABUAAAABAAEAAAAdABkAAAABAAEAAAAhABkAAAABAAEAAAAhAB0AAAABAAEAAAAhACEAAAABAAEAAAAdAB0AAAABAAEAAAAhABEAAAABAAEAAAAlABEAAAABAAEAAAAlABUAAAABAAEAAAAlABkAAAABAAEAAAAlAB0AAAABAAEAAAApABEAAAABAAEAAAAtABEAAAABAAEAAAAxABEAAAABAAEAAAApABUAAAABAAEAAAApABkAAAABAAEAAAApAB0AAAABAAEAAAAtAB0AAAABAAEAAAAtABkAAAABAAEAAAAtABUAAAABAAEAAAAxABUAAAABAAEAAAAxABkAAAABAAEAAAAxAB0AAAABAAEAAAAZABkAAAABAAEAAAAVABkAAAABAAEAAAAVAB0AAAABAAEAAAAZAB0AAAABAAEAAAAVACEAAAABAAEAAAAZACEAAAABAAEAAAAdACEAAAABAAEAAAAZACUAAAABAAEAAAAZACkAAAABAAEAAAAdACUAAAABAAEAAAAdACkAAAABAAEAAAAhACUAAAABAAEAAAAhACkAAAABAAEAAAAlACkAAAABAAEAAAAlACUAAAABAAEAAAAlACEAAAABAAEAAAApACEAAAABAAEAAAApACUAAAABAAEAAAApACkAAAABAAEAAAAtACkAAAABAAEAAAAtACUAAAABAAEAAAAtACEAAAABAAEAAAAxACEAAAABAAEAAAAxACUAAAABAAEAAAAxACkAAAABAAEAAAA=")
