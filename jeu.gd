@@ -10,7 +10,7 @@ func spawn_mob():
 	%PathFollow2D.progress_ratio = randf()
 	new_mob.global_position = %PathFollow2D.global_position
 	new_mob.cible = %Joueur
-	new_mob.lvl = DonnesJeu.vague_actuelle
+	new_mob.set_lvl(DonnesJeu.vague_actuelle)
 	new_mob.died.connect(_on_mob_died)
 	add_child(new_mob)
 	

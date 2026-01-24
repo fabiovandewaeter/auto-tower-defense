@@ -1,6 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://brhm0vmeu7scu"]
+[gd_scene load_steps=13 format=3 uid="uid://brhm0vmeu7scu"]
 
 [ext_resource type="Script" uid="uid://exwbyui1ob8g" path="res://joueur.gd" id="1_2d0qe"]
+[ext_resource type="Texture2D" uid="uid://cy0f4cthdeuov" path="res://assets/Archer_Idle.png" id="2_nhxrk"]
+[ext_resource type="Texture2D" uid="uid://ym8p6xwnhkat" path="res://assets/Tower.png" id="3_7j7mc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr1qv"]
+atlas = ExtResource("2_nhxrk")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqiic"]
+atlas = ExtResource("2_nhxrk")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l6sa"]
+atlas = ExtResource("2_nhxrk")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cmlh"]
+atlas = ExtResource("2_nhxrk")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neeqg"]
+atlas = ExtResource("2_nhxrk")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hfmd"]
+atlas = ExtResource("2_nhxrk")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4w5q"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"archer_tower_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr1qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqiic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l6sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cmlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neeqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hfmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0tex"]
 radius = 46.043457
@@ -10,6 +67,18 @@ radius = 156.0
 
 [node name="Joueur" type="StaticBody2D"]
 script = ExtResource("1_2d0qe")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -19)
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("3_7j7mc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(0, -51)
+sprite_frames = SubResource("SpriteFrames_o4w5q")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r0tex")
@@ -21,13 +90,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_2d0qe")
 debug_color = Color(0.96876603, 0, 0.46883678, 0.41960785)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -36.0
-offset_top = -36.0
-offset_right = 36.0
-offset_bottom = 36.0
-color = Color(0, 0.47843137, 0.9764706, 1)
 
 [node name="CooldownCaC" type="Timer" parent="."]
 unique_name_in_owner = true

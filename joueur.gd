@@ -5,11 +5,13 @@ extends StaticBody2D
 
 @onready var amelioration_cac: Amelioration = DonnesJeu.amelioration_pour(DonnesJeu.AMELIORATION.CAC)
 @onready var amelioration_laser: Amelioration = DonnesJeu.amelioration_pour(DonnesJeu.AMELIORATION.LASER)
+@onready var animated_sprite_idle = $Node2D/AnimatedSprite2D
 
 var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
 	rng.randomize()
+	animated_sprite_idle.play()
 
 # attaque au cac
 func _on_cooldown_ca_c_timeout() -> void:

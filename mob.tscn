@@ -1,9 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://ondoojsuphrv"]
+[gd_scene load_steps=11 format=3 uid="uid://ondoojsuphrv"]
 
 [ext_resource type="Script" uid="uid://buhgidmcbmduy" path="res://mob.gd" id="1_dy6sc"]
+[ext_resource type="Texture2D" uid="uid://c0fblcsg718gj" path="res://assets/Black_Warrior_Run.png" id="2_nokgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
 radius = 25.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubaqv"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11y5"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5nov"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mxk"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qmh0"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfurk"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ieysi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubaqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5nov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3mxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfurk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mob_black_walk",
+"speed": 10.0
+}]
 
 [node name="mob" type="CharacterBody2D" groups=["mobs"]]
 collision_layer = 2
@@ -13,8 +69,16 @@ script = ExtResource("1_dy6sc")
 shape = SubResource("CircleShape2D_nokgg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -19.0
 offset_top = -19.0
 offset_right = 21.0
 offset_bottom = 21.0
 color = Color(1, 0.40910947, 0.44270128, 1)
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.7, 0.7)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+sprite_frames = SubResource("SpriteFrames_ieysi")
+autoplay = "default"

@@ -340,6 +340,11 @@ offset_top = -45.0
 offset_right = 798.0
 offset_bottom = 680.0
 
+[node name="Joueur" parent="." instance=ExtResource("1_bc8hh")]
+unique_name_in_owner = true
+top_level = true
+position = Vector2(396, 317)
+
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-16.01984, 0)
 scale = Vector2(0.70873016, 1)
@@ -353,9 +358,5 @@ rotation = -0.0031745925
 [node name="SpawnMob" type="Timer" parent="."]
 wait_time = 0.4
 autostart = true
-
-[node name="Joueur" parent="." instance=ExtResource("1_bc8hh")]
-unique_name_in_owner = true
-position = Vector2(396, 317)
 
 [connection signal="timeout" from="SpawnMob" to="." method="_on_spawn_mob_timeout"]
